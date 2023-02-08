@@ -9,6 +9,7 @@ object competition01 {
 //    val sparkConf = new SparkConf().setMaster("local[*]").setAppName("spark_on_hive")
     val spark = SparkSession.builder().enableHiveSupport().getOrCreate()
     //      逻辑操作
+    //测试一下gitgub
     spark.sql("use competition")
     val dataFrame = spark.sql("select u , count(distinct customerid) as c from E_Commerce_Data_Clean GROUP BY u ORDER BY c DESC LIMIT 10")
     dataFrame.show()
