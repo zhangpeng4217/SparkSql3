@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+	<property>
+		<name>hadoop.tmp.dir</name>
+		<value>/home/hadoop/hadoopdata</value>
+	</property>
+<property>
+	<name>fs.checkpoint.period</name>
+	<value>3600</value>
+	<description>定义备份NN的间隔时间，秒为单位，只对SNN生效，默认一小时</description>
+</property>
+<property>
+	<name>fs.checkpoint.size</name>
+	<value>67108864</value>
+	<description>
+		以日志大小间隔做备份间隔，只对SNN生效，默认64M，字节为单位
+	</description>
+</property>
+
+<property>  
+				<name>hadoop.proxyuser.hadoop.hosts</name>  
+				<value>*</value>  
+			</property>  
+			<property>  
+				<name>hadoop.proxyuser.hadoop.groups</name>  
+				<value>*</value>  
+			</property> 
+      
+      <!-- 把两个NameNode）的地址组装成一个集群mycluster -->
+		<property>
+			<name>fs.defaultFS</name>
+        	<value>hdfs://mycluster</value>
+		</property>
+<property>
+	<name>ha.zookeeper.quorum</name>
+	<value>master:2181,slave01:2181,slave02:2181</value>
+</property>
+<property>
+
+   <name>ipc.client.connect.max.retries</name>
+
+   <value>100</value>
+
+   <description>Indicates the number of retries a client will make to establish
+
+       a server connection.
+
+   </description>
+
+ </property>
+
+ <property>
+
+   <name>ipc.client.connect.retry.interval</name>
+
+   <value>10000</value>
+
+   <description>Indicates the number of milliseconds a client will wait for
+
+  before retrying to establish a server connection.
+
+   </description>
+
+ </property> 
+
+</configuration>
